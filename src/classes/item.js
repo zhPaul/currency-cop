@@ -47,7 +47,7 @@ class Item {
     const { explicitMods, icon, category } = this.source
 
     // Maps
-    if (category && 'maps' in category) {
+    if (category && 'map' in category) {
       // beachhead maps
       if (this.name === 'The Beachhead') {
         if (icon.indexOf('HarbingerRed') > -1) {
@@ -252,8 +252,11 @@ Item.getReportItemName = function (item) {
   let gemLevel = item[8]
   let gemQuality = item[7]
 
+  if (name) {
+    name += `, ${name}`
+  }
   if (variant) {
-    name += `, ${variant}`
+    name += ` ${variant}`
   }
 
   if (links) {
